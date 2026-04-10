@@ -3,33 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Godfather | Indian Restaurant - Silchar</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Aura Luxury Salon | Hair & Beauty Solution Silchar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --rose-gold: #b76e79;
+            --rose-light: #e8c4c4;
+            --gold: #c9a227;
+            --dark: #2d2d2d;
+            --cream: #faf7f2;
+            --white: #ffffff;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        :root {
-            --primary: #c9a227;
-            --dark: #1a1a1a;
-            --darker: #0f0f0f;
-            --light: #f5f5f5;
-            --accent: #e74c3c;
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background: var(--darker);
-            color: var(--light);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark);
+            background: var(--cream);
             line-height: 1.6;
         }
 
-        h1, h2, h3 {
+        h1, h2, h3, h4 {
             font-family: 'Playfair Display', serif;
         }
 
@@ -37,20 +41,46 @@
             position: fixed;
             top: 0;
             width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
             padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            background: rgba(15, 15, 15, 0.95);
-            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(183, 110, 121, 0.1);
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #b76e79 0%, #e8c4c4 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .logo-text {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--rose-gold);
+        }
+
+        .logo-tagline {
+            font-size: 0.7rem;
+            color: var(--rose-gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         nav ul {
@@ -60,8 +90,9 @@
         }
 
         nav a {
-            color: var(--light);
             text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -69,7 +100,14 @@
         }
 
         nav a:hover {
-            color: var(--primary);
+            color: var(--rose-gold);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--rose-gold);
         }
 
         .hero {
@@ -77,257 +115,323 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            background: linear-gradient(135deg, rgba(250,247,242,0.95) 0%, rgba(252,228,236,0.9) 100%),
+                        url('https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1920') center/cover;
+            padding: 8rem 5% 5rem;
             text-align: center;
-            background: linear-gradient(135deg, rgba(15,15,15,0.95) 0%, rgba(26,26,26,0.9) 100%), 
-                        url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920') center/cover;
-            padding: 2rem;
+            position: relative;
         }
 
-        .hero-content h1 {
-            font-size: 4rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        .hero-content {
+            max-width: 800px;
         }
 
-        .hero-content .tagline {
-            font-size: 1.3rem;
-            color: var(--light);
-            margin-bottom: 2rem;
-            font-weight: 300;
-        }
-
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-        }
-
-        .stat {
-            text-align: center;
-            padding: 0 1rem;
-        }
-
-        .stat-value {
-            font-size: 2rem;
-            font-weight: 600;
-            color: var(--primary);
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: #888;
-        }
-
-        .rating {
+        .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: rgba(201, 162, 39, 0.2);
-            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, #c9a227 0%, #f4e4bc 100%);
+            padding: 0.6rem 1.5rem;
             border-radius: 50px;
-            margin-top: 1rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .hero h1 span {
+            color: var(--rose-gold);
+            font-style: italic;
+        }
+
+        .hero-tagline {
+            font-size: 1.3rem;
+            color: var(--rose-gold);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero-rating {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
         }
 
         .stars {
-            color: var(--primary);
+            color: var(--gold);
+            font-size: 1.3rem;
         }
 
-        .cta-buttons {
+        .rating-text {
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .hero p {
+            color: #666;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
             display: flex;
             gap: 1rem;
             justify-content: center;
-            margin-top: 2rem;
             flex-wrap: wrap;
         }
 
         .btn {
             padding: 1rem 2.5rem;
             border-radius: 50px;
+            font-weight: 600;
             text-decoration: none;
-            font-weight: 500;
             transition: all 0.3s;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
             border: none;
             cursor: pointer;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .btn-primary {
-            background: var(--primary);
-            color: var(--dark);
+            background: linear-gradient(135deg, #b76e79 0%, #e8c4c4 100%);
+            color: white;
         }
 
         .btn-primary:hover {
-            background: #b8921f;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(183, 110, 121, 0.3);
         }
 
         .btn-secondary {
-            border: 2px solid var(--primary);
-            color: var(--primary);
             background: transparent;
+            color: var(--rose-gold);
+            border: 2px solid var(--rose-gold);
         }
 
         .btn-secondary:hover {
-            background: var(--primary);
-            color: var(--dark);
+            background: var(--rose-gold);
+            color: white;
+        }
+
+        .lgbtq-badge {
+            position: absolute;
+            bottom: 2rem;
+            right: 2rem;
+            background: linear-gradient(90deg, #ff0018, #ffa52c, #ffff41, #008018, #0000f9, #86007d);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         section {
             padding: 5rem 5%;
         }
 
-        .section-title {
-            font-size: 2.5rem;
+        .section-header {
             text-align: center;
             margin-bottom: 3rem;
-            color: var(--primary);
         }
 
-        .about {
-            background: var(--dark);
-        }
-
-        .about-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #ccc;
-        }
-
-        .about-features {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-        }
-
-        .feature {
-            background: var(--darker);
-            padding: 1.5rem;
-            border-radius: 10px;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .feature:hover {
-            transform: translateY(-3px);
-        }
-
-        .feature-icon {
-            font-size: 2rem;
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
             margin-bottom: 0.5rem;
         }
 
-        .feature-text {
-            font-size: 0.85rem;
-            color: #888;
+        .section-header p {
+            color: var(--rose-gold);
+            font-size: 1.1rem;
+        }
+
+        .section-line {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, #b76e79 0%, #e8c4c4 100%);
+            margin: 1rem auto 0;
         }
 
         .services {
-            background: var(--darker);
+            background: white;
         }
 
-        .service-grid {
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         .service-card {
-            background: var(--dark);
-            padding: 2rem;
-            border-radius: 15px;
+            background: var(--cream);
+            padding: 2.5rem;
+            border-radius: 20px;
             text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.3s;
         }
 
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(201, 162, 39, 0.1);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(183, 110, 121, 0.15);
         }
 
         .service-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--primary);
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #b76e79 0%, #e8c4c4 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1rem;
-            font-size: 1.5rem;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 1.8rem;
         }
 
-        .menu {
-            background: var(--dark);
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
         }
 
-        .menu-grid {
+        .service-card p {
+            color: #777;
+            font-size: 0.95rem;
+        }
+
+        .about {
+            background: linear-gradient(135deg, #fce4ec 0%, var(--cream) 100%);
+        }
+
+        .about-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, #b76e79 0%, #e8c4c4 100%);
+            border-radius: 20px;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.4);
+            font-size: 6rem;
+        }
+
+        .about-content h3 {
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .about-content p {
+            color: #555;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .about-feature i {
+            color: var(--rose-gold);
+        }
+
+        .gallery {
+            background: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .menu-item {
-            background: var(--darker);
-            padding: 1.5rem;
-            border-radius: 10px;
+        .gallery-item {
+            background: var(--cream);
+            border-radius: 15px;
+            aspect-ratio: 4/3;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            transition: transform 0.3s;
+            justify-content: center;
+            color: var(--rose-light);
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
         }
 
-        .menu-item:hover {
-            transform: translateX(5px);
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #b76e79 0%, #e8c4c4 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
         }
 
-        .menu-item-name {
-            font-weight: 500;
-        }
-
-        .menu-item-price {
-            color: var(--primary);
-            font-weight: 600;
+        .gallery-item:hover .gallery-overlay {
+            opacity: 0.9;
         }
 
         .reviews {
-            background: var(--darker);
+            background: var(--cream);
         }
 
-        .review-grid {
+        .reviews-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .review-card {
-            background: var(--dark);
+            background: white;
             padding: 2rem;
-            border-radius: 15px;
-            transition: transform 0.3s;
-        }
-
-        .review-card:hover {
-            transform: translateY(-5px);
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
         }
 
         .review-header {
@@ -338,21 +442,26 @@
         }
 
         .reviewer-name {
-            font-weight: 500;
-            color: var(--primary);
+            font-weight: 600;
         }
 
         .review-rating {
-            color: var(--primary);
+            color: var(--gold);
         }
 
         .review-text {
-            color: #aaa;
+            color: #666;
             font-style: italic;
         }
 
         .contact {
-            background: var(--dark);
+            background: linear-gradient(135deg, #b76e79 0%, #d4a5a5 100%);
+            color: white;
+        }
+
+        .contact .section-header h2,
+        .contact .section-header p {
+            color: white;
         }
 
         .contact-grid {
@@ -373,368 +482,347 @@
             display: flex;
             align-items: flex-start;
             gap: 1rem;
+            background: rgba(255,255,255,0.15);
+            padding: 1.5rem;
+            border-radius: 15px;
         }
 
-        .contact-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--primary);
+        .contact-item i {
+            width: 50px;
+            height: 50px;
+            background: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: var(--rose-gold);
+            font-size: 1.3rem;
             flex-shrink: 0;
-            font-size: 1.2rem;
         }
 
-        .contact-text h4 {
+        .contact-item h4 {
             margin-bottom: 0.3rem;
-            color: var(--light);
         }
 
-        .contact-text p {
-            color: #888;
-            font-size: 0.95rem;
-        }
-
-        .hours-status {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(231, 76, 60, 0.2);
-            color: var(--accent);
-            padding: 0.3rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin-top: 0.5rem;
-        }
-
-        .hours-status.open {
-            background: rgba(46, 204, 113, 0.2);
-            color: #2ecc71;
+        .contact-item a {
+            color: white;
+            text-decoration: none;
         }
 
         .map-container {
-            background: var(--darker);
-            border-radius: 15px;
+            background: white;
+            border-radius: 20px;
             overflow: hidden;
-            height: 100%;
-            min-height: 300px;
         }
 
         .map-container iframe {
             width: 100%;
             height: 100%;
+            min-height: 350px;
             border: none;
-            min-height: 300px;
         }
 
         footer {
-            background: var(--darker);
-            padding: 2rem 5%;
+            background: var(--dark);
+            color: white;
+            padding: 3rem 5%;
             text-align: center;
-            border-top: 1px solid #333;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--rose-gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .footer-social a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .footer-social a:hover {
+            background: var(--rose-gold);
+        }
+
+        .lgbtq-footer {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(90deg, #ff0018, #ffa52c, #ffff41, #008018, #0000f9, #86007d);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
         }
 
         .footer-text {
-            color: #666;
+            opacity: 0.7;
+            margin-top: 2rem;
             font-size: 0.9rem;
         }
 
         @media (max-width: 768px) {
-            .hero-content h1 {
+            nav ul {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
                 font-size: 2.5rem;
             }
 
-            .hero-stats {
-                flex-direction: column;
-                gap: 1.5rem;
+            .lgbtq-badge {
+                position: relative;
+                bottom: auto;
+                right: auto;
+                margin-top: 2rem;
+                display: inline-flex;
             }
 
-            .about-content {
+            .about-grid,
+            .contact-grid {
                 grid-template-columns: 1fr;
             }
 
             .about-features {
                 grid-template-columns: 1fr;
             }
-
-            .service-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            nav ul {
-                gap: 1rem;
-            }
-
-            nav a {
-                font-size: 0.75rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-            }
-
-            section {
-                padding: 3rem 5%;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">The Godfather</div>
+        <div class="logo">
+            <div class="logo-icon"><i class="fas fa-sparkles"></i></div>
+            <div>
+                <div class="logo-text">Aura Luxury Salon</div>
+                <div class="logo-tagline">Hair & Beauty Solutions</div>
+            </div>
+        </div>
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#menu">Menu</a></li>
+                <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#reviews">Reviews</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
+        <div class="mobile-menu"><i class="fas fa-bars"></i></div>
     </header>
 
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>The Godfather</h1>
-            <p class="tagline">Authentic Indian Cuisine in the Heart of Silchar</p>
-            
-            <div class="rating">
-                <span class="stars">★★★★☆</span>
-                <span>4.3 (653 reviews)</span>
+            <div class="hero-badge">
+                <i class="fas fa-crown"></i> Premium Beauty Destination
             </div>
-
-            <div class="hero-stats">
-                <div class="stat">
-                    <div class="stat-value">₹200-400</div>
-                    <div class="stat-label">Per Person</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-value">Indian</div>
-                    <div class="stat-label">Cuisine</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-value">Silchar</div>
-                    <div class="stat-label">Location</div>
-                </div>
+            <h1>Aura <span>Luxury Salon</span></h1>
+            <div class="hero-tagline">Hair & Beauty Solutions in Silchar</div>
+            <div class="hero-rating">
+                <span class="stars">★★★★★</span>
+                <span class="rating-text">4.9</span>
+                <span style="color:#888">(341 reviews)</span>
             </div>
+            <p>Experience luxury beauty treatments in a welcoming, inclusive environment. Where your beauty dreams come to life.</p>
+            <div class="hero-buttons">
+                <a href="tel:+916003844475" class="btn btn-primary"><i class="fas fa-phone"></i> Book Now</a>
+                <a href="#services" class="btn btn-secondary">Our Services</a>
+            </div>
+        </div>
+        <div class="lgbtq-badge"><i class="fas fa-rainbow"></i> LGBTQ+ Friendly</div>
+    </section>
 
-            <div class="cta-buttons">
-                <a href="tel:+917099343330" class="btn btn-primary">Call Now</a>
-                <a href="#menu" class="btn btn-secondary">View Menu</a>
+    <section class="services" id="services">
+        <div class="section-header">
+            <h2>Our Services</h2>
+            <p>Premium beauty treatments tailored for you</p>
+            <div class="section-line"></div>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-cut"></i></div>
+                <h3>Hair Styling</h3>
+                <p>Expert haircuts and styling for all hair types. From classic to contemporary looks.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+                <h3>Hair Coloring</h3>
+                <p>Professional coloring including highlights, balayage, and global coloring.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-spa"></i></div>
+                <h3>Facials</h3>
+                <p>Rejuvenating facial treatments using premium products for glowing skin.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-eye"></i></div>
+                <h3>Makeup</h3>
+                <p>Professional makeup for weddings, parties, and special occasions.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-hand-sparkles"></i></div>
+                <h3>Manicure & Pedicure</h3>
+                <p>Luxury nail care including spa manicures, pedicures, and nail art.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-magic"></i></div>
+                <h3>Bridal Packages</h3>
+                <p>Complete bridal beauty packages with makeup and hairstyling.</p>
             </div>
         </div>
     </section>
 
     <section class="about" id="about">
-        <h2 class="section-title">About Us</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <p>Welcome to <strong>The Godfather</strong>, Silchar's premier destination for authentic Indian cuisine. Located at Hotel Swagat on Central Road, we bring you the rich flavors and aromatic spices of traditional Indian cooking.</p>
-                <br>
-                <p>Our chefs craft each dish with passion, using time-honored recipes and the freshest ingredients. Whether you are craving classic North Indian curries, aromatic biryanis, or regional specialties, we promise an unforgettable dining experience.</p>
-            </div>
-            <div class="about-features">
-                <div class="feature">
-                    <div class="feature-icon">🍽️</div>
-                    <div class="feature-text">Dine-in</div>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🥡</div>
-                    <div class="feature-text">Takeaway</div>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🛵</div>
-                    <div class="feature-text">No-contact Delivery</div>
+        <div class="section-header">
+            <h2>About Us</h2>
+            <p>Your beauty is our passion</p>
+            <div class="section-line"></div>
+        </div>
+        <div class="about-grid">
+            <div class="about-image"><i class="fas fa-gem"></i></div>
+            <div class="about-content">
+                <h3>Welcome to Aura Luxury Salon</h3>
+                <p>Located in the heart of Silchar, near Shillong Patty and Axis Bank at Ambicapatty, Aura Luxury Salon is your premier destination for hair and beauty solutions.</p>
+                <p>As an LGBTQ+ friendly establishment, we celebrate diversity and ensure every client receives personalized care in a comfortable, judgment-free environment.</p>
+                <div class="about-features">
+                    <div class="about-feature"><i class="fas fa-check-circle"></i> Premium Products</div>
+                    <div class="about-feature"><i class="fas fa-check-circle"></i> Expert Stylists</div>
+                    <div class="about-feature"><i class="fas fa-check-circle"></i> Hygienic Environment</div>
+                    <div class="about-feature"><i class="fas fa-check-circle"></i> Inclusive Space</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="services">
-        <h2 class="section-title">Our Services</h2>
-        <div class="service-grid">
-            <div class="service-card">
-                <div class="service-icon">🍽️</div>
-                <h3>Dine-in</h3>
-                <p>Enjoy our elegant ambiance and impeccable service for a memorable dining experience.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🥡</div>
-                <h3>Takeaway</h3>
-                <p>Order your favorites and enjoy them in the comfort of your home.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🛵</div>
-                <h3>Delivery</h3>
-                <p>No-contact delivery available. Fresh, hot meals delivered to your doorstep.</p>
-            </div>
+    <section class="gallery" id="gallery">
+        <div class="section-header">
+            <h2>Our Gallery</h2>
+            <p>A glimpse of our work</p>
+            <div class="section-line"></div>
         </div>
-    </section>
-
-    <section class="menu" id="menu">
-        <h2 class="section-title">Our Menu</h2>
-        <div class="menu-grid">
-            <div class="menu-item">
-                <div class="menu-item-name">Paneer Tikka</div>
-                <div class="menu-item-price">₹220</div>
-            </div>
-            <div class="menu-item">
-                <div class="menu-item-name">Chicken Tikka</div>
-                <div class="menu-item-price">₹280</div>
-            </div>
-            <div class="menu-item">
-                <div class="menu-item-name">Butter Chicken</div>
-                <div class="menu-item-price">₹340</div>
-            </div>
-            <div class="menu-item">
-                <div class="menu-item-name">Mutton Rogan Josh</div>
-                <div class="menu-item-price">₹380</div>
-            </div>
-            <div class="menu-item">
-                <div class="menu-item-name">Chicken Biryani</div>
-                <div class="menu-item-price">₹320</div>
-            </div>
-            <div class="menu-item">
-                <div class="menu-item-name">Mutton Biryani</div>
-                <div class="menu-item-price">₹380</div>
-            </div>
-            <div class="menu-item">
-                <div class="menu-item-name">Paneer Butter Masala</div>
-                <div class="menu-item-price">₹280</div>
-            </div>
-            <div class="menu-item">
-                <div class="menu-item-name">Dal Makhani</div>
-                <div class="menu-item-price">₹200</div>
-            </div>
-            <div class="menu-item">
-                <div class="menu-item-name">Garlic Naan</div>
-                <div class="menu-item-price">₹60</div>
-            </div>
-            <div class="menu-item">
-                <div class="menu-item-name">Butter Roti</div>
-                <div class="menu-item-price">₹40</div>
-            </div>
+        <div class="gallery-grid">
+            <div class="gallery-item"><i class="fas fa-image"></i><div class="gallery-overlay"><i class="fas fa-plus"></i></div></div>
+            <div class="gallery-item"><i class="fas fa-image"></i><div class="gallery-overlay"><i class="fas fa-plus"></i></div></div>
+            <div class="gallery-item"><i class="fas fa-image"></i><div class="gallery-overlay"><i class="fas fa-plus"></i></div></div>
+            <div class="gallery-item"><i class="fas fa-image"></i><div class="gallery-overlay"><i class="fas fa-plus"></i></div></div>
+            <div class="gallery-item"><i class="fas fa-image"></i><div class="gallery-overlay"><i class="fas fa-plus"></i></div></div>
+            <div class="gallery-item"><i class="fas fa-image"></i><div class="gallery-overlay"><i class="fas fa-plus"></i></div></div>
         </div>
     </section>
 
     <section class="reviews" id="reviews">
-        <h2 class="section-title">What Our Guests Say</h2>
-        <div class="review-grid">
+        <div class="section-header">
+            <h2>Client Reviews</h2>
+            <p>What our clients say</p>
+            <div class="section-line"></div>
+        </div>
+        <div class="reviews-grid">
             <div class="review-card">
                 <div class="review-header">
-                    <span class="reviewer-name">Rahul S.</span>
+                    <span class="reviewer-name">Priya S.</span>
                     <span class="review-rating">★★★★★</span>
                 </div>
-                <p class="review-text">"Amazing food and great ambiance! The butter chicken is absolutely divine. Best restaurant in Silchar!"</p>
+                <p class="review-text">"Absolutely love this place! The staff is so welcoming and skilled. My bridal makeup was perfect!"</p>
             </div>
             <div class="review-card">
                 <div class="review-header">
-                    <span class="reviewer-name">Priya M.</span>
-                    <span class="review-rating">★★★★☆</span>
+                    <span class="reviewer-name">Rahul K.</span>
+                    <span class="review-rating">★★★★★</span>
                 </div>
-                <p class="review-text">"Love the biryani here! Always fresh and flavorful. Delivery is quick and packaging is good too."</p>
+                <p class="review-text">"Best salon in Silchar! The LGBTQ+ friendly environment made me feel so comfortable."</p>
             </div>
             <div class="review-card">
                 <div class="review-header">
-                    <span class="reviewer-name">Ankit K.</span>
+                    <span class="reviewer-name">Ananya M.</span>
                     <span class="review-rating">★★★★★</span>
                 </div>
-                <p class="review-text">"Great place for family dinners. The service is excellent and the prices are reasonable for the quality."</p>
+                <p class="review-text">"Regular customer here! The facials are heavenly and my hair has never looked better."</p>
             </div>
         </div>
     </section>
 
     <section class="contact" id="contact">
-        <h2 class="section-title">Visit Us</h2>
+        <div class="section-header">
+            <h2>Visit Us</h2>
+            <p>Book your appointment today</p>
+            <div class="section-line"></div>
+        </div>
         <div class="contact-grid">
             <div class="contact-info">
                 <div class="contact-item">
-                    <div class="contact-icon">📍</div>
-                    <div class="contact-text">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
                         <h4>Address</h4>
-                        <p>Hotel Swagat, Chandra Super Market<br>A.K, Central Rd, Tarapur<br>Silchar, Assam 788001</p>
-                        <p style="font-size: 0.8rem; color: #666; margin-top: 0.3rem;">Located in: Central Road Point, Silchar</p>
+                        <p>Near Shillong Patty, near Axis Bank<br>Ambicapatty, Silchar, Assam 788004</p>
+                        <p style="margin-top:0.5rem;font-size:0.85rem;opacity:0.8">RQFW+3V Silchar, Assam</p>
                     </div>
                 </div>
                 <div class="contact-item">
-                    <div class="contact-icon">📞</div>
-                    <div class="contact-text">
-                        <h4>Phone</h4>
-                        <p><a href="tel:+917099343330" style="color: #ccc; text-decoration: none;">070993 43330</a></p>
-                    </div>
+                    <i class="fas fa-phone"></i>
+                    <div><h4>Phone</h4><p><a href="tel:+916003844475">+91 60038 44475</a></p></div>
                 </div>
                 <div class="contact-item">
-                    <div class="contact-icon">🕐</div>
-                    <div class="contact-text">
-                        <h4>Hours</h4>
-                        <p>Opens 11:00 AM daily</p>
-                        <span class="hours-status" id="hoursStatus">
-                            <span class="status-dot">●</span>
-                            <span class="status-text">Check timings</span>
-                        </span>
-                    </div>
+                    <i class="fas fa-clock"></i>
+                    <div><h4>Opening Hours</h4><p>Opens 10:00 AM daily</p></div>
                 </div>
                 <div class="contact-item">
-                    <div class="contact-icon">💰</div>
-                    <div class="contact-text">
-                        <h4>Price Range</h4>
-                        <p>₹200–400 per person</p>
-                        <p style="font-size: 0.8rem; color: #666;">Reported by 162 people</p>
-                    </div>
+                    <i class="fas fa-star"></i>
+                    <div><h4>Rating</h4><p>4.9 ★ (341 Reviews) · Beauty Parlour</p></div>
                 </div>
             </div>
             <div class="map-container">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3623.1234567890123!2d92.7890123456789!3d24.8270123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDQ5JzM3LjIiTiA5MsKwNDcnMjAuNCJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3622.8!2d92.79!3d24.83!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDQ5JzQ4LjAiTiA5MsKwNDcnMjQuMCJF!5e0!3m2!1sen!2sin!4v1" allowfullscreen loading="lazy"></iframe>
             </div>
         </div>
     </section>
 
     <footer>
-        <p class="footer-text">© 2024 The Godfather Restaurant. All rights reserved. | RRG2+W2 Silchar, Assam</p>
+        <div class="footer-content">
+            <div class="footer-brand"><i class="fas fa-sparkles"></i> Aura Luxury Salon</div>
+            <p>Your premier destination for hair and beauty solutions in Silchar. Where luxury meets inclusivity.</p>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <div class="lgbtq-footer"><i class="fas fa-rainbow"></i> LGBTQ+ Friendly</div>
+            <p class="footer-text">© 2024 Aura Luxury Salon. All rights reserved. | Silchar, Assam</p>
+        </div>
     </footer>
 
     <script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
             });
         });
-
-        function updateHoursStatus() {
-            const now = new Date();
-            const hour = now.getHours();
-            const statusEl = document.getElementById('hoursStatus');
-            const isOpen = hour >= 11 && hour < 22;
-            
-            if (isOpen) {
-                statusEl.classList.add('open');
-                statusEl.innerHTML = '<span class="status-dot">●</span><span class="status-text">Open Now</span>';
-            } else {
-                statusEl.classList.remove('open');
-                statusEl.innerHTML = '<span class="status-dot">●</span><span class="status-text">Closed · Opens 11 AM</span>';
-            }
-        }
-        
-        updateHoursStatus();
-        setInterval(updateHoursStatus, 60000);
     </script>
 </body>
 </html>
