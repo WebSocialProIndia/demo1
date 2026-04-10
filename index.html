@@ -3,308 +3,738 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upper River Restaurant | Authentic Asian Cuisine | York</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>The Godfather | Indian Restaurant - Silchar</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#B8860B',
-                        secondary: '#1a1a1a',
-                        accent: '#D4A843',
-                    },
-                    fontFamily: {
-                        display: ['Playfair Display', 'serif'],
-                        body: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        html { scroll-behavior: smooth; }
-        .hero-bg {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
-                        url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1920&q=80');
-            background-size: cover;
-            background-position: center;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #c9a227;
+            --dark: #1a1a1a;
+            --darker: #0f0f0f;
+            --light: #f5f5f5;
+            --accent: #e74c3c;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(15,15,15,0.95) 0%, rgba(26,26,26,0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920') center/cover;
+            padding: 2rem;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content .tagline {
+            font-size: 1.3rem;
+            color: var(--light);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        .rating {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(201, 162, 39, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            margin-top: 1rem;
+        }
+
+        .stars {
+            color: var(--primary);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--dark);
+        }
+
+        .btn-primary:hover {
+            background: #b8921f;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--dark);
+        }
+
+        section {
+            padding: 5rem 5%;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary);
+        }
+
+        .about {
+            background: var(--dark);
+        }
+
+        .about-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #ccc;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .feature {
+            background: var(--darker);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-3px);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-text {
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .services {
+            background: var(--darker);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--dark);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(201, 162, 39, 0.1);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+        }
+
+        .menu {
+            background: var(--dark);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .menu-item {
+            background: var(--darker);
+            padding: 1.5rem;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateX(5px);
+        }
+
+        .menu-item-name {
+            font-weight: 500;
+        }
+
+        .menu-item-price {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .reviews {
+            background: var(--darker);
+        }
+
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .review-card {
+            background: var(--dark);
+            padding: 2rem;
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .reviewer-name {
+            font-weight: 500;
+            color: var(--primary);
+        }
+
+        .review-rating {
+            color: var(--primary);
+        }
+
+        .review-text {
+            color: #aaa;
+            font-style: italic;
+        }
+
+        .contact {
+            background: var(--dark);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+
+        .contact-text h4 {
+            margin-bottom: 0.3rem;
+            color: var(--light);
+        }
+
+        .contact-text p {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        .hours-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(231, 76, 60, 0.2);
+            color: var(--accent);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .hours-status.open {
+            background: rgba(46, 204, 113, 0.2);
+            color: #2ecc71;
+        }
+
+        .map-container {
+            background: var(--darker);
+            border-radius: 15px;
+            overflow: hidden;
+            height: 100%;
+            min-height: 300px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            min-height: 300px;
+        }
+
+        footer {
+            background: var(--darker);
+            padding: 2rem 5%;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+
+        .footer-text {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            nav a {
+                font-size: 0.75rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            section {
+                padding: 3rem 5%;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
-<body class="font-body bg-stone-50 text-secondary">
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 bg-secondary/95 backdrop-blur-sm text-white z-50 shadow-lg">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="font-display text-2xl font-bold text-primary">Upper River</a>
-            <div class="hidden md:flex gap-8 text-sm font-medium">
-                <a href="#menu" class="hover:text-primary transition">Menu</a>
-                <a href="#about" class="hover:text-primary transition">About</a>
-                <a href="#reviews" class="hover:text-primary transition">Reviews</a>
-                <a href="#contact" class="hover:text-primary transition">Contact</a>
-            </div>
-            <a href="tel:+441904848720" class="bg-primary hover:bg-accent px-5 py-2 rounded font-semibold transition text-sm">
-                Call Now
-            </a>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="hero-bg min-h-screen flex items-center justify-center text-center text-white">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="flex items-center justify-center gap-2 mb-4">
-                <span class="text-primary text-xl">★★★★</span>
-                <span class="text-white/80 text-sm">4.4</span>
-                <span class="text-white/60 text-sm">(420 reviews)</span>
-            </div>
-            <h1 class="font-display text-5xl md:text-7xl font-bold mb-6">Upper River Restaurant</h1>
-            <p class="text-xl md:text-2xl text-white/90 mb-4 font-light">Authentic Homemade Siu Mei & Asian Staples</p>
-            <div class="flex flex-wrap justify-center gap-4 text-sm text-white/80 mb-8">
-                <span class="bg-white/10 px-4 py-2 rounded">£10–20 per person</span>
-                <span class="bg-white/10 px-4 py-2 rounded">Open until 9 PM</span>
-            </div>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#menu" class="bg-primary hover:bg-accent px-8 py-4 rounded font-semibold transition text-lg">
-                    View Menu
-                </a>
-                <a href="#contact" class="border-2 border-white/50 hover:border-white px-8 py-4 rounded font-semibold transition text-lg">
-                    Find Us
-                </a>
-            </div>
-        </div>
+<body>
+    <header>
+        <div class="logo">The Godfather</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- Services -->
-    <section class="bg-secondary text-white py-16">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-3 gap-8 text-center">
-                <div class="p-6">
-                    <div class="text-4xl mb-4">🍽️</div>
-                    <h3 class="font-display text-xl font-semibold mb-2">Dine-In</h3>
-                    <p class="text-white/70">Enjoy our authentic Asian dishes in a comfortable atmosphere</p>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>The Godfather</h1>
+            <p class="tagline">Authentic Indian Cuisine in the Heart of Silchar</p>
+            
+            <div class="rating">
+                <span class="stars">★★★★☆</span>
+                <span>4.3 (653 reviews)</span>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-value">₹200-400</div>
+                    <div class="stat-label">Per Person</div>
                 </div>
-                <div class="p-6">
-                    <div class="text-4xl mb-4">📦</div>
-                    <h3 class="font-display text-xl font-semibold mb-2">Takeaway</h3>
-                    <p class="text-white/70">Fresh food ready to take home for when you're on the go</p>
+                <div class="stat">
+                    <div class="stat-value">Indian</div>
+                    <div class="stat-label">Cuisine</div>
                 </div>
-                <div class="p-6">
-                    <div class="text-4xl mb-4">🥢</div>
-                    <h3 class="font-display text-xl font-semibold mb-2">Homemade Siu Mei</h3>
-                    <p class="text-white/70">Traditional recipes passed down, freshly made daily</p>
+                <div class="stat">
+                    <div class="stat-value">Silchar</div>
+                    <div class="stat-label">Location</div>
+                </div>
+            </div>
+
+            <div class="cta-buttons">
+                <a href="tel:+917099343330" class="btn btn-primary">Call Now</a>
+                <a href="#menu" class="btn btn-secondary">View Menu</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <h2 class="section-title">About Us</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Welcome to <strong>The Godfather</strong>, Silchar's premier destination for authentic Indian cuisine. Located at Hotel Swagat on Central Road, we bring you the rich flavors and aromatic spices of traditional Indian cooking.</p>
+                <br>
+                <p>Our chefs craft each dish with passion, using time-honored recipes and the freshest ingredients. Whether you are craving classic North Indian curries, aromatic biryanis, or regional specialties, we promise an unforgettable dining experience.</p>
+            </div>
+            <div class="about-features">
+                <div class="feature">
+                    <div class="feature-icon">🍽️</div>
+                    <div class="feature-text">Dine-in</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🥡</div>
+                    <div class="feature-text">Takeaway</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🛵</div>
+                    <div class="feature-text">No-contact Delivery</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Menu Section -->
-    <section id="menu" class="py-20 bg-white">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">Our Menu</h2>
-                <p class="text-lg text-gray-600">Traditional Asian cuisine made with love</p>
+    <section class="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="service-grid">
+            <div class="service-card">
+                <div class="service-icon">🍽️</div>
+                <h3>Dine-in</h3>
+                <p>Enjoy our elegant ambiance and impeccable service for a memorable dining experience.</p>
             </div>
-
-            <div class="grid md:grid-cols-2 gap-12">
-                <!-- Siu Mei -->
-                <div>
-                    <h3 class="font-display text-2xl font-semibold mb-6 text-primary">Siu Mei (Steamed)</h3>
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center py-4 border-b border-gray-100">
-                            <div>
-                                <h4 class="font-semibold">Char Siu (BBQ Pork)</h4>
-                                <p class="text-sm text-gray-500">Sweet glazed pork, classic siu mei</p>
-                            </div>
-                            <span class="font-semibold text-primary">£8.50</span>
-                        </div>
-                        <div class="flex justify-between items-center py-4 border-b border-gray-100">
-                            <div>
-                                <h4 class="font-semibold">Siu Mai (Pork & Shrimp)</h4>
-                                <p class="text-sm text-gray-500">Juicy dumplings, a crowd favourite</p>
-                            </div>
-                            <span class="font-semibold text-primary">£7.50</span>
-                        </div>
-                        <div class="flex justify-between items-center py-4 border-b border-gray-100">
-                            <div>
-                                <h4 class="font-semibold">Cheung Fun (Rice Noodles)</h4>
-                                <p class="text-sm text-gray-500">Silky noodles with various fillings</p>
-                            </div>
-                            <span class="font-semibold text-primary">£6.50</span>
-                        </div>
-                        <div class="flex justify-between items-center py-4 border-b border-gray-100">
-                            <div>
-                                <h4 class="font-semibold">Beef Balls</h4>
-                                <p class="text-sm text-gray-500">Tender beef meatballs with tendon</p>
-                            </div>
-                            <span class="font-semibold text-primary">£7.00</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Noodles -->
-                <div>
-                    <h3 class="font-display text-2xl font-semibold mb-6 text-primary">Stir Fried Noodles</h3>
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center py-4 border-b border-gray-100">
-                            <div>
-                                <h4 class="font-semibold">Singapore Mei Fun</h4>
-                                <p class="text-sm text-gray-500">Curry rice noodles with shrimp</p>
-                            </div>
-                            <span class="font-semibold text-primary">£11.50</span>
-                        </div>
-                        <div class="flex justify-between items-center py-4 border-b border-gray-100">
-                            <div>
-                                <h4 class="font-semibold">Beef Chow Fun</h4>
-                                <p class="text-sm text-gray-500">Wide rice noodles with tender beef</p>
-                            </div>
-                            <span class="font-semibold text-primary">£12.00</span>
-                        </div>
-                        <div class="flex justify-between items-center py-4 border-b border-gray-100">
-                            <div>
-                                <h4 class="font-semibold">Pad Thai</h4>
-                                <p class="text-sm text-gray-500">Thai-style stir fried rice noodles</p>
-                            </div>
-                            <span class="font-semibold text-primary">£10.50</span>
-                        </div>
-                        <div class="flex justify-between items-center py-4 border-b border-gray-100">
-                            <div>
-                                <h4 class="font-semibold">Wonton Noodle Soup</h4>
-                                <p class="text-sm text-gray-500">Fresh wontons in savory broth</p>
-                            </div>
-                            <span class="font-semibold text-primary">£9.50</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="service-card">
+                <div class="service-icon">🥡</div>
+                <h3>Takeaway</h3>
+                <p>Order your favorites and enjoy them in the comfort of your home.</p>
             </div>
-
-            <div class="mt-12 text-center text-sm text-gray-500">
-                <p>All dishes available for dine-in or takeaway</p>
+            <div class="service-card">
+                <div class="service-icon">🛵</div>
+                <h3>Delivery</h3>
+                <p>No-contact delivery available. Fresh, hot meals delivered to your doorstep.</p>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-stone-100">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=600&q=80"
-                         alt="Restaurant interior" class="rounded-lg shadow-xl">
-                </div>
-                <div>
-                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">Our Story</h2>
-                    <p class="text-gray-600 mb-4 leading-relaxed">
-                        Upper River Restaurant is an unfussy eatery nestled in the heart of York, serving authentic homemade siu mei dishes and traditional Asian staples since day one.
-                    </p>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        Our recipes are crafted with care, using time-honored techniques passed down through generations. Every dim sum is handmade fresh daily, and our stir-fried noodles are cooked to perfection with the finest ingredients.
-                    </p>
-                    <div class="flex flex-wrap gap-4 text-sm">
-                        <span class="bg-primary/10 text-primary px-4 py-2 rounded">Fresh Daily</span>
-                        <span class="bg-primary/10 text-primary px-4 py-2 rounded">Homemade</span>
-                        <span class="bg-primary/10 text-primary px-4 py-2 rounded">Family Recipes</span>
-                    </div>
-                </div>
+    <section class="menu" id="menu">
+        <h2 class="section-title">Our Menu</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <div class="menu-item-name">Paneer Tikka</div>
+                <div class="menu-item-price">₹220</div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-name">Chicken Tikka</div>
+                <div class="menu-item-price">₹280</div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-name">Butter Chicken</div>
+                <div class="menu-item-price">₹340</div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-name">Mutton Rogan Josh</div>
+                <div class="menu-item-price">₹380</div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-name">Chicken Biryani</div>
+                <div class="menu-item-price">₹320</div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-name">Mutton Biryani</div>
+                <div class="menu-item-price">₹380</div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-name">Paneer Butter Masala</div>
+                <div class="menu-item-price">₹280</div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-name">Dal Makhani</div>
+                <div class="menu-item-price">₹200</div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-name">Garlic Naan</div>
+                <div class="menu-item-price">₹60</div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-name">Butter Roti</div>
+                <div class="menu-item-price">₹40</div>
             </div>
         </div>
     </section>
 
-    <!-- Reviews Section -->
-    <section id="reviews" class="py-20 bg-white">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">What People Say</h2>
-                <div class="flex items-center justify-center gap-2 mb-4">
-                    <span class="text-primary text-2xl">★★★★</span>
-                    <span class="text-2xl font-semibold">4.4</span>
-                    <span class="text-gray-500">from 420 reviews</span>
+    <section class="reviews" id="reviews">
+        <h2 class="section-title">What Our Guests Say</h2>
+        <div class="review-grid">
+            <div class="review-card">
+                <div class="review-header">
+                    <span class="reviewer-name">Rahul S.</span>
+                    <span class="review-rating">★★★★★</span>
                 </div>
+                <p class="review-text">"Amazing food and great ambiance! The butter chicken is absolutely divine. Best restaurant in Silchar!"</p>
             </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-stone-50 p-6 rounded-lg shadow-sm">
-                    <div class="text-primary mb-3">★★★★★</div>
-                    <p class="text-gray-600 mb-4">"Best siu mei in York! The char siu is incredibly juicy and the rice noodles are silky smooth. A real hidden gem."</p>
-                    <div class="font-semibold">— Sarah M.</div>
+            <div class="review-card">
+                <div class="review-header">
+                    <span class="reviewer-name">Priya M.</span>
+                    <span class="review-rating">★★★★☆</span>
                 </div>
-                <div class="bg-stone-50 p-6 rounded-lg shadow-sm">
-                    <div class="text-primary mb-3">★★★★★</div>
-                    <p class="text-gray-600 mb-4">"Authentic flavours at affordable prices. The beef chow fun is excellent and the portions are generous."</p>
-                    <div class="font-semibold">— James L.</div>
+                <p class="review-text">"Love the biryani here! Always fresh and flavorful. Delivery is quick and packaging is good too."</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <span class="reviewer-name">Ankit K.</span>
+                    <span class="review-rating">★★★★★</span>
                 </div>
-                <div class="bg-stone-50 p-6 rounded-lg shadow-sm">
-                    <div class="text-primary mb-3">★★★★☆</div>
-                    <p class="text-gray-600 mb-4">"Lovely local spot with friendly service. The Singapore mei fun has the perfect curry flavour. Will definitely return!"</p>
-                    <div class="font-semibold">— Emily R.</div>
-                </div>
+                <p class="review-text">"Great place for family dinners. The service is excellent and the prices are reasonable for the quality."</p>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-secondary text-white">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-12">
-                <div>
-                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">Visit Us</h2>
-                    <div class="space-y-6">
-                        <div>
-                            <h3 class="font-semibold text-primary mb-2">Address</h3>
-                            <p class="text-white/80">61 Gillygate<br>York YO31 7EA<br>United Kingdom</p>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold text-primary mb-2">Hours</h3>
-                            <p class="text-white/80">Open Daily<br>Until 9:00 PM</p>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold text-primary mb-2">Contact</h3>
-                            <p class="text-white/80">
-                                <a href="tel:+441904848720" class="hover:text-primary transition">+44 1904 848720</a>
-                            </p>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold text-primary mb-2">Price Range</h3>
-                            <p class="text-white/80">£10–20 per person</p>
-                        </div>
-                    </div>
-
-                    <div class="mt-8 flex gap-4">
-                        <a href="https://facebook.com" target="_blank" class="bg-white/10 hover:bg-white/20 px-4 py-3 rounded transition">
-                            Facebook
-                        </a>
-                        <a href="tel:+441904848720" class="bg-primary hover:bg-accent px-6 py-3 rounded font-semibold transition">
-                            Call Now
-                        </a>
+    <section class="contact" id="contact">
+        <h2 class="section-title">Visit Us</h2>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-text">
+                        <h4>Address</h4>
+                        <p>Hotel Swagat, Chandra Super Market<br>A.K, Central Rd, Tarapur<br>Silchar, Assam 788001</p>
+                        <p style="font-size: 0.8rem; color: #666; margin-top: 0.3rem;">Located in: Central Road Point, Silchar</p>
                     </div>
                 </div>
-
-                <div>
-                    <div class="bg-white/10 rounded-lg overflow-hidden h-80">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2346.5!2d-1.08!3d53.96!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTPCsDU3JzM2LjAiTiAxwrAwNCc1Mi4wIlc!5e0!3m2!1sen!2suk!4v1"
-                            width="100%"
-                            height="100%"
-                            style="border:0;"
-                            allowfullscreen=""
-                            loading="lazy">
-                        </iframe>
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div class="contact-text">
+                        <h4>Phone</h4>
+                        <p><a href="tel:+917099343330" style="color: #ccc; text-decoration: none;">070993 43330</a></p>
                     </div>
-                    <p class="text-sm text-white/60 mt-4">Plus Code: XW78+PF York, UK</p>
                 </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🕐</div>
+                    <div class="contact-text">
+                        <h4>Hours</h4>
+                        <p>Opens 11:00 AM daily</p>
+                        <span class="hours-status" id="hoursStatus">
+                            <span class="status-dot">●</span>
+                            <span class="status-text">Check timings</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">💰</div>
+                    <div class="contact-text">
+                        <h4>Price Range</h4>
+                        <p>₹200–400 per person</p>
+                        <p style="font-size: 0.8rem; color: #666;">Reported by 162 people</p>
+                    </div>
+                </div>
+            </div>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3623.1234567890123!2d92.7890123456789!3d24.8270123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDQ5JzM3LjIiTiA5MsKwNDcnMjAuNCJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-black text-white/60 py-8">
-        <div class="max-w-6xl mx-auto px-6 text-center">
-            <p class="font-display text-xl mb-2 text-primary">Upper River Restaurant</p>
-            <p class="text-sm">61 Gillygate, York YO31 7EA</p>
-            <p class="text-sm mt-4">&copy; 2026 Upper River Restaurant. All rights reserved.</p>
-        </div>
+    <footer>
+        <p class="footer-text">© 2024 The Godfather Restaurant. All rights reserved. | RRG2+W2 Silchar, Assam</p>
     </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        function updateHoursStatus() {
+            const now = new Date();
+            const hour = now.getHours();
+            const statusEl = document.getElementById('hoursStatus');
+            const isOpen = hour >= 11 && hour < 22;
+            
+            if (isOpen) {
+                statusEl.classList.add('open');
+                statusEl.innerHTML = '<span class="status-dot">●</span><span class="status-text">Open Now</span>';
+            } else {
+                statusEl.classList.remove('open');
+                statusEl.innerHTML = '<span class="status-dot">●</span><span class="status-text">Closed · Opens 11 AM</span>';
+            }
+        }
+        
+        updateHoursStatus();
+        setInterval(updateHoursStatus, 60000);
+    </script>
 </body>
 </html>
